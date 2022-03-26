@@ -9,7 +9,38 @@ Atividade de Linguagem de Programação III.
 ESTOQUE MÉDIO = (QUANTIDADE_MÍNIMA + QUANTIDADE_MÁXIMA) / 2.
 
 ```C#
+using System;
 
+namespace InvetoryManger{
+	public class Program
+	{
+		public static void Main()
+		{
+			Selector();
+		}
+		
+		public static void Selector(){
+			Console.WriteLine("===== Gerenciador de estoque! =====");
+			
+			Console.WriteLine("Qual a quantidade mínima de estoque? ");
+			int currencyValue = int.Parse(Console.ReadLine());
+			
+			Console.WriteLine("Qual a quantidade máxima de estoque? ");
+			int amount = int.Parse(Console.ReadLine());
+			
+			double result = GetAverage(amount, currencyValue);
+			Console.WriteLine("O estoque médio é " + result + " !");
+			
+			Console.WriteLine();
+			Console.WriteLine("Obrigado pela preferência! ;)");
+			Console.WriteLine("====================================================");
+		}
+		
+		public static double GetAverage(int min, int max){
+			return (min + max)/2;
+		}
+	}
+}
 
 ```
 
@@ -56,8 +87,11 @@ namespace DollarConverter{
 
 ## 3) Faça um programa para pagamento de comissão de vendedores de peças, levando-se em consideração que sua comissão será de 5% do total da venda e que você tem os seguintes dados:
 Identificação do vendedor
+
 Código da peça
+
 Preço unitário da peça
+
 Quantidade vendida
 
 ```C#
