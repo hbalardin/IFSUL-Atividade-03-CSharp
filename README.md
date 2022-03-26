@@ -95,4 +95,49 @@ Preço unitário da peça
 Quantidade vendida
 
 ```C#
+using System;
+
+namespace ComissionManger{
+	public class Program
+	{
+		public static void Main()
+		{
+			Selector();
+		}
+		
+		public static void Selector(){
+			Console.WriteLine("===== Gerenciador de comissões! =====");
+			
+			Console.WriteLine("Digite a identifição do vendedor: ");
+			string sellerId = Console.ReadLine();
+			
+			Console.WriteLine("Digite o código da peça: ");
+			string itemId = Console.ReadLine();
+			
+			Console.WriteLine("Digite o preço unitário da peça: ");
+			double unitPrice = double.Parse(Console.ReadLine());
+			
+			Console.WriteLine("Digite a quantidade de peças vendidas: ");
+			int quantity = int.Parse(Console.ReadLine());
+			
+			double total = getTotal(unitPrice, quantity);
+			double comissionValue = getComission(total);
+			
+			Console.WriteLine("Considerando uma comissão de 5%, o vendedor com identificação '" + sellerId + "' vendeu " + total + " reais em peças, e receberá o valor de " + comissionValue + " reais!");
+			
+			Console.WriteLine();
+			Console.WriteLine("Obrigado pela preferência! ;)");
+			Console.WriteLine("====================================================");
+		}
+		
+		public static double getTotal(double price, int quantity){
+			return price * quantity;
+		}
+		
+		public static double getComission(double value){
+			return value * 0.05;
+		}
+	}
+}
+
 ```
